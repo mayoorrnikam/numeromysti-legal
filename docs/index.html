@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NumeroMysti - Legal Documents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6B4EE6;
+            --primary-dark: #5438C5;
+            --secondary: #9C7CF4;
+            --background: #0D0B1E;
+            --surface: #1A1730;
+            --text: #FFFFFF;
+            --text-secondary: #B8B5C8;
+            --accent: #FFD700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, #1E1B3A 100%);
+            min-height: 100vh;
+            color: var(--text);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 20px 60px rgba(107, 78, 230, 0.4);
+        }
+        
+        .logo-text {
+            font-size: 48px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        
+        .cards {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(107, 78, 230, 0.2);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .card-arrow {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-text {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-text">🔮</span>
+            </div>
+            <h1>NumeroMysti</h1>
+            <p class="tagline">Discover Your Numerology</p>
+        </header>
+        
+        <div class="cards">
+            <a href="privacy-policy.html" class="card">
+                <div class="card-icon">🔒</div>
+                <h2>Privacy Policy</h2>
+                <p>Learn how we collect, use, and protect your personal information when you use NumeroMysti.</p>
+                <span class="card-arrow">Read Privacy Policy →</span>
+            </a>
+            
+            <a href="terms-and-conditions.html" class="card">
+                <div class="card-icon">📜</div>
+                <h2>Terms & Conditions</h2>
+                <p>Understand the terms of service, disclaimers, and your rights when using our app.</p>
+                <span class="card-arrow">Read Terms & Conditions →</span>
+            </a>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2025 NumeroMysti. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                <a href="mailto:mayurnikaam@gmail.com">Contact Us</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+
