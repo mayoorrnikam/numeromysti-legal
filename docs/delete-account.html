@@ -526,10 +526,11 @@
                 // Step 2: Delete user data from Realtime Database
                 // Adjust these paths based on your actual database structure
                 const deletePromises = [
-                    firebase.database().ref('users/' + uid).remove(),
+                    firebase.database().ref('user_profiles_debug/' + uid).remove(),
+                    firebase.database().ref('user_profiles/' + uid).remove(),
+                    firebase.database().ref('user_analytics_debug/' + uid).remove(),
+                    firebase.database().ref('user_analytics/' + uid).remove(),
                     // Add other data paths if you have them:
-                    // firebase.database().ref('userProfiles/' + uid).remove(),
-                    // firebase.database().ref('numerologyData/' + uid).remove(),
                 ];
 
                 await Promise.all(deletePromises);
