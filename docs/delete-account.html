@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delete your NumeroMysti account and all associated data permanently.">
+    <title>🗑️ Delete Account - NumeroMysti</title>
+    
+    <style>
+        :root {
+            --primary: #6B4EE6;
+            --primary-dark: #5438C5;
+            --secondary: #9C7CF4;
+            --background: #0D0B1E;
+            --surface: #1A1730;
+            --text: #FFFFFF;
+            --text-secondary: #B8B5C8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, #1E1B3A 100%);
+            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            text-decoration: none;
+            margin-bottom: 32px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--text);
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .warning-box strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .info-box strong {
+            display: block;
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+            font-family: inherit;
+            color: var(--text);
+        }
+
+        input[type="email"]::placeholder,
+        input[type="password"]::placeholder,
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(107, 78, 230, 0.2);
+        }
+
+        input[type="email"]:invalid:not(:placeholder-shown) {
+            border-color: #ff6b6b;
+        }
+
+        input[type="email"]:valid:not(:placeholder-shown) {
+            border-color: #51cf66;
+        }
+
+        /* Custom validation error styling */
+        input[type="email"]:invalid:not(:placeholder-shown):not(:focus) {
+            border-color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--secondary);
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+
+        .password-wrapper input {
+            padding-right: 50px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+            user-select: none;
+            color: var(--text-secondary);
+        }
+
+        .btn-delete {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-delete:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-delete:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            background: #555;
+            box-shadow: none;
+        }
+
+        .message {
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        /* Animation for messages */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.success {
+            background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+            color: white;
+        }
+
+        .message.error {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <div class="header">
+            <h1>🗑️ Delete Account</h1>
+            <p style="color: var(--text-secondary); margin-top: 8px;">Permanently remove your account and all data</p>
+        </div>
+
+        <div class="content">
+            <div class="warning-box">
+                <strong>⚠️ Warning: This Action is Permanent</strong>
+                Once you delete your account, there is no way to recover it. All your data will be permanently removed from our systems.
+            </div>
+
+            <div class="info-box">
+                <strong>What will be deleted:</strong>
+                <ul>
+                    <li>Your account credentials and authentication information</li>
+                    <li>All personal data (name, date of birth)</li>
+                    <li>Your numerology profile and calculations</li>
+                    <li>All synced data across devices</li>
+                    <li>Your usage history and preferences</li>
+                </ul>
+            </div>
+
+            <div class="info-box" style="border-left-color: #51cf66; background: linear-gradient(135deg, #51cf6615 0%, #37b24d15 100%);">
+                <strong style="color: #51cf66;">💡 Before you delete:</strong>
+                <ul>
+                    <li>Make sure you really want to delete your account - this cannot be undone</li>
+                    <li>If you're having issues with the app, consider contacting support first</li>
+                    <li>You can create a new account anytime if you change your mind</li>
+                    <li>Deletion is instant - you'll be logged out immediately</li>
+                </ul>
+            </div>
+
+            <div id="message" class="message"></div>
+
+            <form id="deleteForm">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        required 
+                        placeholder="Enter your registered email"
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <div class="password-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            required 
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="password-toggle" id="togglePassword" title="Show password" aria-label="Toggle password visibility">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirm" required>
+                    <label for="confirm">
+                        I understand that this action is permanent and cannot be undone. All my data will be permanently deleted.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-delete" id="deleteBtn" disabled>
+                    Delete My Account Permanently
+                </button>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>
+                Having trouble deleting your account?<br>
+                Contact us at <a href="mailto:mayurnikaam@gmail.com">mayurnikaam@gmail.com</a>
+            </p>
+            <p style="margin-top: 12px;">© 2025 NumeroMysti. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <script>
+        // Firebase configuration - REPLACE WITH YOUR ACTUAL CONFIG
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            databaseURL: "YOUR_DATABASE_URL",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get DOM elements
+        const form = document.getElementById('deleteForm');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const messageDiv = document.getElementById('message');
+        const passwordInput = document.getElementById('password');
+        const togglePasswordBtn = document.getElementById('togglePassword');
+        const confirmCheckbox = document.getElementById('confirm');
+        const emailInput = document.getElementById('email');
+
+        // ===== IMPROVED EMAIL VALIDATION =====
+        // This requires: something@something.something
+        function isValidEmail(email) {
+            // More strict email validation - requires a dot after @
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Add custom email validation on input
+        emailInput.addEventListener('input', function() {
+            hideMessage();
+            
+            // Apply custom validation
+            if (this.value && !isValidEmail(this.value)) {
+                this.setCustomValidity('Please enter a valid email address with a domain (e.g., user@example.com)');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // Also validate on blur
+        emailInput.addEventListener('blur', function() {
+            if (this.value && !isValidEmail(this.value)) {
+                this.reportValidity();
+            }
+        });
+        // ===== END EMAIL VALIDATION =====
+
+        // Password visibility toggle
+        togglePasswordBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent any default behavior
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                this.textContent = '🙈';
+                this.title = 'Hide password';
+            } else {
+                passwordInput.type = 'password';
+                this.textContent = '👁️';
+                this.title = 'Show password';
+            }
+        });
+
+        // Enable/disable delete button based on checkbox
+        confirmCheckbox.addEventListener('change', function() {
+            deleteBtn.disabled = !this.checked;
+        });
+
+        function showMessage(text, isError = false) {
+            messageDiv.textContent = text;
+            messageDiv.className = 'message ' + (isError ? 'error' : 'success');
+            messageDiv.style.display = 'block';
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function hideMessage() {
+            messageDiv.style.display = 'none';
+        }
+
+        // Clear error message when user starts typing
+        passwordInput.addEventListener('input', hideMessage);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const confirmed = confirmCheckbox.checked;
+
+            // Validate email format before submission
+            if (!isValidEmail(email)) {
+                showMessage('Please enter a valid email address with a domain (e.g., user@example.com)', true);
+                emailInput.focus();
+                return;
+            }
+
+            if (!confirmed) {
+                showMessage('Please confirm that you understand this action is permanent.', true);
+                return;
+            }
+
+            // Disable button and show loading state
+            deleteBtn.disabled = true;
+            const originalButtonText = deleteBtn.textContent;
+            deleteBtn.textContent = 'Deleting Account...';
+            hideMessage();
+
+            try {
+                // Step 1: Sign in the user to verify credentials
+                const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+                const uid = user.uid;
+
+                // Step 2: Delete user data from Realtime Database
+                // Adjust these paths based on your actual database structure
+                const deletePromises = [
+                    firebase.database().ref('users/' + uid).remove(),
+                    // Add other data paths if you have them:
+                    // firebase.database().ref('userProfiles/' + uid).remove(),
+                    // firebase.database().ref('numerologyData/' + uid).remove(),
+                ];
+
+                await Promise.all(deletePromises);
+
+                // Step 3: Delete the authentication account
+                await user.delete();
+
+                showMessage('✓ Success! Your account has been permanently deleted. All your data has been removed from our systems.');
+                form.reset();
+                
+                // Redirect to home page after 3 seconds
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+
+            } catch (error) {
+                console.error('Deletion error:', error);
+                let errorMessage = 'Failed to delete account. ';
+
+                switch (error.code) {
+                    case 'auth/wrong-password':
+                        errorMessage += 'The password you entered is incorrect.';
+                        break;
+                    case 'auth/user-not-found':
+                        errorMessage += 'No account found with this email address.';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage += 'The email address is not valid.';
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMessage += 'Too many failed attempts. Please try again later.';
+                        break;
+                    case 'auth/requires-recent-login':
+                        errorMessage += 'For security reasons, please log out of the app and log back in, then try again.';
+                        break;
+                    case 'auth/network-request-failed':
+                        errorMessage += 'Network error. Please check your internet connection.';
+                        break;
+                    default:
+                        errorMessage += error.message || 'An unexpected error occurred.';
+                }
+
+                showMessage(errorMessage, true);
+            } finally {
+                deleteBtn.textContent = originalButtonText;
+                // Re-enable button only if checkbox is still checked
+                deleteBtn.disabled = !confirmCheckbox.checked;
+            }
+        });
+    </script>
+</body>
+</html>
