@@ -401,25 +401,55 @@
         </div>
     </div>
 
-    <!-- Firebase SDK -->
+    <!-- Add this BEFORE Firebase SDK scripts -->
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY"></script>
+    
+    <!-- Firebase SDK (your existing scripts) -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Add App Check script -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-check-compat.js"></script>
 
     <script>
+        // Your Android app's Firebase configuration
         // Firebase configuration - REPLACE WITH YOUR ACTUAL CONFIG
+        // const firebaseConfig = {
+        //     apiKey: "AIzaSyDQfDsN1xdK1WhYzYqRZ_fusZY-AafOE3s",
+        //     authDomain: "numbergame-b54a2.firebaseapp.com",
+        //     databaseURL: "https://numbergame-b54a2.firebaseio.com/",
+        //     projectId: "numbergame-b54a2",
+        //     storageBucket: "gs://numbergame-b54a2.appspot.com",
+        //     messagingSenderId: "12124537017",
+        //     appId: "1:12124537017:android:3eaddef687c2bdc9"
+        // };
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-            apiKey: "AIzaSyDQfDsN1xdK1WhYzYqRZ_fusZY-AafOE3s",
-            authDomain: "numbergame-b54a2.firebaseapp.com",
-            databaseURL: "https://numbergame-b54a2.firebaseio.com/",
-            projectId: "numbergame-b54a2",
-            storageBucket: "gs://numbergame-b54a2.appspot.com",
-            messagingSenderId: "12124537017",
-            appId: "1:12124537017:android:3eaddef687c2bdc9"
+          apiKey: "AIzaSyAxBUJAR9BIGP4QgzQ6dnvvNJ0sfyZSBHA",
+          authDomain: "numbergame-b54a2.firebaseapp.com",
+          databaseURL: "https://numbergame-b54a2.firebaseio.com",
+          projectId: "numbergame-b54a2",
+          storageBucket: "numbergame-b54a2.appspot.com",
+          messagingSenderId: "12124537017",
+          appId: "1:12124537017:web:a6fe7777f4a581aeab5b68",
+          measurementId: "G-RP1Z11K8B1"
         };
 
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+        //const app = firebase.initializeApp(firebaseConfig);
+        //firebase.getAnalytics(app);
+
+        // ===== ADD THIS: Initialize App Check =====
+        const appCheck = firebase.appCheck();
+        appCheck.activate(
+            '6LcfZC8sAAAAAJiJ1m81Z5Vl0tkHJWqgRY9kmOR9',
+            true // Pass true to enable automatic background refresh
+        );
+        // ===== END APP CHECK SETUP =====
 
         // Get DOM elements
         const form = document.getElementById('deleteForm');
